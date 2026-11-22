@@ -1,11 +1,23 @@
-event_title = input("Enter event title: ")
-year = input("Enter year: ")
-month = input("Enter month: ")
-day = input("Enter day: ")
+from datetime import date
+
+event_title = input("Enter event title: ").strip()
+year = int(input("Enter year: ").strip())
+month = int(input("Enter month: ").strip())
+day = int(input("Enter day: ").strip())
+
+event_date = date(year, month, day)
+
+formatted_event = event_title.upper()
+formatted_date = event_date.strftime("%B %d, %Y").replace(" 0", " ")
+formatted_year = event_date.year
+formatted_month = event_date.strftime("%B")
+formatted_day = event_date.day
+weekday = event_date.strftime("%A")
 
 print("\nFormatted Output:")
-print("Event:", event_title)
-print("Date:", year + "-" + month + "-" + day)
-print("Year:", year)
-print("Month:", month)
-print("Day:", day)
+print("Event:", formatted_event)
+print("Date:", formatted_date)
+print("Year:", formatted_year)
+print("Month:", formatted_month)
+print("Day:", formatted_day)
+print("Weekday:", weekday)
